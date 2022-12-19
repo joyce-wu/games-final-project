@@ -5,7 +5,7 @@ import itertools as it
 import random
 from deck import Deck
 
-class HillPolicy(CribbagePolicy):
+class HeuristicPolicy(CribbagePolicy):
     def __init__(self, game, heuristic_params):
         self._game = game
         self._policy = CompositePolicy(game, GreedyThrower(game), GreedyPegger(game))

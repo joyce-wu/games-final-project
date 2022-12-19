@@ -4,7 +4,7 @@ from cribbage import Game
 from policy import CribbagePolicy, CompositePolicy, GreedyThrower, GreedyPegger
 import itertools as it
 from deck import Deck
-from hill_policy import HillPolicy
+from heuristic_policy import HeuristicPolicy
 
 # log: first tried with smaller number of games to test for functionality
 # playing around with parameter range for heuristics to see if it made a difference
@@ -20,7 +20,7 @@ class HillEvaluate():
     def evaluate_score(self, parameters):
         game = Game()
         baseline_greedy = CompositePolicy(game, GreedyThrower(game), GreedyPegger(game))
-        hill_climb = HillPolicy(game, parameters)
+        hill_climb = HeuristicPolicy(game, parameters)
         num_wins = 0
 
         for g in range(1000): # run 1000 game iterations # take the average win rate
