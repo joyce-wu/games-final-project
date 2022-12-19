@@ -1,0 +1,29 @@
+ESTIMATE of time to complete assignment: 10 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+9/10   9:00pm  1:00  read assignment and played several games of cribbage to help me understand the rules
+9/12   9:00am  1:45  played more games of cribbage and brainstormed potential heuristics
+9/12   8:00pm  0:45  wrote code for adding heuristics for throwing
+9/14   9:00am  1:00  continued coding heuristics for throwing
+9/14   8:30pm  1:30  changed strategy for throwing to take into account the community card; finished implementation
+9/19   10:30am 1:00  wrote code for adding heuristics for pegging
+9/19   7:00pm  2:00  encountered pypy3 difficulties and debugging slow runtimes of keep()
+9/20   4:00pm  0:30  debugging with Professor Glenn for keep()
+9/21   9:00pm  3:00  added more heuristics for pegging and parameter tuning
+9/21   10:00pm 1:30  finished adding heuristics, running tests, and parameter tuning
+               ----
+               12:00  TOTAL time spent
+
+I discussed my solution with: Ashley Qin.
+
+DISCUSSION
+
+After implementing the my throw function, my tests would take a really long time to run. It took many hours of
+debugging to figure out that I had accidentally nested a for loop inside another for loop in the function. This
+is a good reminder to always pay attention to indenting. I had difficulties with parameter tuning. I was 
+playing around with different amounts to add to the scores before starting from the beginning and setting 
+everything back to 0.25. Having this base improved my net score drastically, and the parameter tuning ended up
+being unnecessarily complicated. Additionally, I had difficulty coming up with heuristics for pegging and 
+thinking about the ways in which pairs can be really helpful.
