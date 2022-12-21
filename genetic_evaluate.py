@@ -84,7 +84,7 @@ class GeneticEvaluate():
         scores = [self.evaluate_score(chromosome) for chromosome in population]
 
         # Limiting number of generations
-        for i in range(1):
+        for i in range(2):
             # Step 2: Select 2 parents out of population for crossover (bias towards more fit individuals)
             parents = self.selection(population, scores)
 
