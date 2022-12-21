@@ -18,14 +18,14 @@ def define_agent(flag):
     return HeuristicPolicy(game, params)
 
 if __name__ == "__main__":
-    # hill = HillEvaluate()
-    # hill.hill_climb()
+    hill = HillEvaluate()
+    hill.hill_climb()
     game = Game()
 
-    new_agent = define_agent(sys.argv[1])
-    baseline = define_agent(sys.argv[2])
-    games = int(sys.argv[3])
+    # new_agent = define_agent(sys.argv[1])
+    # baseline = define_agent(sys.argv[2])
+    # games = int(sys.argv[3])
     
-    results = evaluate_policies(game, new_agent, baseline, games)
-    print("NET:", results[0])
-    print(results)
+    # results = evaluate_policies(game, new_agent, baseline, games)
+    # print("NET:", results[0])
+    # print(results)
