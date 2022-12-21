@@ -56,6 +56,6 @@ class HillEvaluate():
             if not changed:
                 found_max = True
             
-            step_size *= 0.4
+            step_size *= 0.5
 
         return best_params

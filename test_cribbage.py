@@ -12,8 +12,7 @@ def define_agent(flag):
     if flag == '--hill':
         params = [0.625, 0.625, 0.625, 0.5, 0.325]
     if flag == '--genetic':
-        genetic = GeneticEvaluate()
-        params = genetic.genetic()
+        params = [2.8056485076424815, 0.01282169511330089, 4.337214629495559, 0.513857841117974, 1.8741732405009748]
     
     return HeuristicPolicy(game, params)
 

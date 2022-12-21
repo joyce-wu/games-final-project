@@ -78,13 +78,13 @@ class GeneticEvaluate():
 
     def genetic(self):
         # Setting population size
-        population = self.generate_population(6)
+        population = self.generate_population(5)
 
         # Step 1: Evaluate each individual
         scores = [self.evaluate_score(chromosome) for chromosome in population]
 
         # Limiting number of generations
-        for i in range(20):
+        for i in range(1):
             # Step 2: Select 2 parents out of population for crossover (bias towards more fit individuals)
             parents = self.selection(population, scores)
 
