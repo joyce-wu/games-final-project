@@ -1,30 +1,37 @@
-# games-final-project
+## Group
+Joyce Wu and Ashley Qin
 
-This project uses hill climbing and genetic algorithms to parameter tune heuristic values in the peg phase of cribbage. We compare the agent tuned with hill climbing and the agent tuned with genetic algorithms to see which performs better against the baseline greedy algorithm. Both algorithms tune
+## Description
+In the pegging phase of Cribbage, we applied 5 heuristics to the greedy agent. These heuristics include biasing card values less than 5, placing a card that sums up to 15, placing a card that sums over 15, placing a triple, and placing a double. Each heuristic is set to a default value of 0.5. 
 
-Command line takes in 3 arguments
-./TestCribbage –hill –greedy 1000
-First argument specifies the agent that will be evaluated
-Second argument specifies the baseline agent for comparison
-Third argument specifies the number of games that are played
-–hill → calls the hill climbing agent
-–greedy → called the greedy agent with heuristics 
-–genetic → calls the genetic algorithm agent
+We have created a hill climbing agent and a genetic algorithm agent to tune our heuristic weights in Cribbage. For each agent, we have created a script (`hill_evaluate.py and genetic_evaluate.py`) that use the hill climbing algorithm and genetic algorithm, respectively, to find the heuristic weights that result in the highest expected number of wins for the player using this strategy. The `hill_evaluate.py` script takes around 25 minutes to run starting with parameter constants of 0.5 for each heuristic, while the `genetic_evaluate.py` script takes 2+ hours to run with the number of generations = 2 and individuals in population = 5. We then hard-coded these weights into `test_cribbage.py` so that the final test script does not take as long as each of the agent scripts.
+
+## Results
+Hill climbing compared to greedy agent: 0.002 (NET)
+
+Genetic algorithm compared to greedy agent: 0.0007 (NET)
+
+Hill climbing vs Genetic algorithm: 0.0009 (NET)
+
+The hill climbing agent only performs slightly better than the greedy agent (statistically insignificant). This may be due to the fact that the pegging phase of cribbage has many local maxima. The hill climbing algorithm only runs about 10-15 iterations before stopping and hitting a max. After running the hill climbing algorithm, results show that specific heuristics are only biased by a small amount in comparison to each other. This may also mean that the heuristic values are already relatively optimized with constant values of 0.5.
+
+The genetic algorithm agent only performs slightly better than the greedy agent and the hill climbing agent. Due to time constraints, we were only able to run the greedy algorithm with parameters of population size = 5 and number of generations = 2. We suspect that this population size/number of generations did not allow the algorithm enough time to fully explore all maxima. We predict that if the algorithm was given more time to run with a larger population size and greater number of generations, it would have performed better.
 
 
-./TestCribbage --greedy --base 1000
-NET: 0.245
+## Running the code
+Run `make TestCribbage`
 
-./TestCribbage --hill --base 1000
-NET: 0.235
+Give command-line arguments as follows:
 
-./TestCribbage --hill --greedy 1000
-NET: -0.002
+- The script takes in three arguments with 2 specified flags:
 
-Hill climbing:
-# first tried with smaller number of games to test for functionality
-# playing around with parameter range for heuristics to see if it made a difference
-# tuning step size
-# tried to implement hill climbing stochastically first by choosing random parameter to tune at a time
-# implemented hill climbing by choosing parameter with steepest ascent
-# a lot of plateauing can happen
+  – hill → calls the hill climbing agent
+  
+  – greedy → calls the greedy agent with heuristics 
+  
+  – genetic → calls the genetic algorithm agent
+  
+- The first command-line argument specifies the first agent that will be evaluated (either `--hill`, `genetic`, or `greedy’)
+- The second command-line argument specifies the agent that will be played against the first (either `--hill`, `genetic`, or `greedy’)
+- The third command-line argument specifies the number of games that are played
+- Example: ./TestCribbage –hill –greedy 1000
