@@ -8,7 +8,7 @@ from heuristic_policy import HeuristicPolicy
 class HillEvaluate():
     def __init__(self):
         self._params = [0.5, 0.5, 0.5, 0.5, 0.5]
-    
+
     def evaluate_score(self, parameters):
         game = Game()
         baseline_greedy = CompositePolicy(game, GreedyThrower(game), GreedyPegger(game))
@@ -25,7 +25,7 @@ class HillEvaluate():
     def hill_climb(self):
         best_params = self._params
         best_score = self.evaluate_score(best_params)
-        step_size = 0.25
+        step_size = 0.5
 
         curr_params = best_params
         found_max = False
@@ -56,6 +56,6 @@ class HillEvaluate():
             if not changed:
                 found_max = True
             
-            step_size *= 0.5
+            step_size *= 0.4
 
         return best_params

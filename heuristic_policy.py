@@ -81,7 +81,7 @@ class HeuristicPolicy(CribbagePolicy):
                 if history.is_start_round() and card_value <= 4:
                     score += self._heuristic_params[0]
 
-                if history.total_points() < 15 and history.total_points() +  card_value > 15:
+                if history.total_points() < 15 and history.total_points() + card_value > 15:
                     score += self._heuristic_params[1]
 
                 if 15 - history.total_points() == card_value:

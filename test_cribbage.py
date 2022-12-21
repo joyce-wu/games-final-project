@@ -4,14 +4,13 @@ from policy import CompositePolicy, RandomThrower, RandomPegger, GreedyThrower, 
 from cribbage import Game, evaluate_policies
 from heuristic_policy import HeuristicPolicy
 from genetic_evaluate import GeneticEvaluate
+from hill_evaluate import HillEvaluate
 
 def define_agent(flag):
-    if flag == '--base':
-        return CompositePolicy(game, GreedyThrower(game), GreedyPegger(game))
     if flag == '--greedy':
         params = [0.5, 0.5, 0.5, 0.5, 0.5]
     if flag == '--hill':
-        params = [0.625, 0.625, 0.5625, 0.625, 0.5]
+        params = [0.625, 0.625, 0.625, 0.5, 0.325]
     if flag == '--genetic':
         genetic = GeneticEvaluate()
         params = genetic.genetic()
